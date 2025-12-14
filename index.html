@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Story Builder – Blue</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- LEFT: Editor -->
+    <div class="panel" id="editor">
+      <div class="sect-title">ตั้งค่า Story</div>
+      <input class="i" id="title" placeholder="หัวข้อประกาศ" value="MAHANAKRON STORY" />
+      <!--เปลี่ยนอันนี้ Fixed เป็น Title ไม่สามรถแก้ไขได้-->
+
+      <div class="grid-auto" style="margin-top:10px">
+        <p style="font-size: 18px; font-weight: bold;">วันเริ่มสตอรี่ :</p>
+        <input class="i" id="startDate" type="date" placeholder="วันที่เริ่ม" />
+
+        <p style="font-size: 18px; font-weight: bold;">เวลาเริ่มสตอรี่ :</p>
+        <input class="i" id="startTime" type="time" placeholder="เวลาเริ่มไฟต์แรก" />
+
+        <p style="font-size: 18px; font-weight: bold;">วันจบสตอรี่ :</p>
+        <input class="i" id="endDate" type="date" placeholder="วันที่จบ" />
+
+        <p style="font-size: 18px; font-weight: bold;">เวลาหมดสตอรี่ :</p>
+        <input class="i" id="endTime" type="time" placeholder="หมดเวลา" />
+
+        <p style="font-size: 18px; font-weight: bold;">ประเภทสตอรี่ :</p>
+        <select class="i" id="storytype" required>
+          <option value="ไฟท์ตรง" disabled selected>เลือกประเภท</option>
+          <option value="ไฟท์ตรง">ไฟท์ตรง</option>
+          <option value="อุ้มเอ๋อ">อุ้มเอ๋อ</option>
+        </select>
+
+        <p style="font-size: 18px; font-weight: bold;">จำนวนไฟต์/บัตรประกัน :</p>
+        <input class="i" id="fightCount" type="number" min="1" placeholder="เช่น 15 ใบ" />
+
+        <p style="font-size: 18px; font-weight: bold;">เงินเดิมพัน :</p>
+        <input class="i" id="dollars" placeholder="เช่น เดิมพัน 4,000,000" />
+
+        <p style="font-size: 18px; font-weight: bold;">จำนวนการเล่น :</p>
+        <input class="i" id="member" placeholder="30vs30" />
+      </div>
+
+      <div class="sect-title" style="margin-top:14px">ทีม / โลโก้</div>
+      <div class="grid-2">
+        <div>
+          <p> GANG : A</p>
+          <select class="i" id="gang1Name" required>
+            <option value="GANG" disabled selected>เลือก Tier</option>
+            <option value="GANG">GANG</option>
+            <option value="FAMILY">FAMILY</option>
+            <option value="MC">MC</option>
+          </select>
+          <p> ใส่ชื่อ GANG : A</p>
+          <input class="i" id="gang1Tag" style="margin-top:8px" placeholder="ใส่ชื่อ GANG FAMILY MC A" />
+          <p> ใส่โลโก้ GANG : A</p>
+          <input class="file" id="gang1Logo" type="file" accept="image/*" title="เลือกรูปโลโก้ฝั่งซ้าย" />
+          <div class="hint">อัปโหลดโลโก้ Gang : A</div>
+        </div>
+        <div>
+          <p> GANG : B</p>
+          <select class="i" id="gang2Name" required>
+            <option value="GANG" disabled selected>เลือก Tier</option>
+            <option value="GANG">GANG</option>
+            <option value="FAMILY">FAMILY</option>
+            <option value="MC">MC</option>
+          </select>
+          <p> ใส่ชื่อ GANG : B</p>
+          <input class="i" id="gang2Tag" style="margin-top:8px" placeholder="ใส่ชื่อ GANG FAMILY MC B" />
+          <p> ใส่โลโก้ GANG : B</p>
+          <input class="file" id="gang2Logo" type="file" accept="image/*" title="เลือกรูปโลโก้ฝั่งขวา" />
+          <div class="hint">อัปโหลดโลโก้ Gang : B</div>
+        </div>
+      </div>
+
+      <div class="sect-title" style="margin-top:14px">ข้อกำหนด / กฎ</div>
+      <div class="rules-builder" id="rules"></div>
+      <button class="add-rule" type="button" id="addRule">+ เพิ่มกฎ</button>
+
+      <div class="sect-title" style="margin-top:14px">เพิ่มเติม</div>
+      <textarea class="ta" id="more" placeholder="เพิ่มบันทึก / หมายเหตุ แยกบรรทัด">1) ไม่ปลด Toxic 100% ไม่ปลด Sexually Harassment
+2) เวลาเปิดระบบ 19.00 ถึง 23.59
+3) ปฏิบัติตามสัญญาณนกหวีดจากผู้คุมสนาม</textarea>
+
+      <div class="sect-title" style="margin-top:14px">ท้ายประกาศ</div>
+      <div class="grid-3">
+        <input class="i" id="foot1" placeholder="หมายเหตุช่องที่ 1 (เช่น หมายเหตุ : คำใบ้)" value="หมายเหตุ : คำใบ้" />
+      </div>
+
+      <div class="row" style="margin-top:16px">
+        <button class="btn" type="button" id="openStandalone">เปิดหน้าใหม่ (หน้าประกาศเดี่ยว)</button>
+        <button class="btn secondary" type="button" id="refresh">อัปเดตพรีวิวด้านขวา</button>
+      </div>
+    </div>
+  </div>
+  <!-- RIGHT: Preview card -->
+  <div class="stage" id="card">
+    <div class="title" id="pvTitle">MAHANAKRON STORY</div>
+
+    <div class="top-tiles">
+      <div class="tile">
+        <div class="k">เริ่มวันที่</div>
+        <div class="v" id="stDate">—</div>
+      </div>
+      <div class="tile">
+        <div class="k">เวลาเริ่มไฟต์แรก</div>
+        <div class="v" id="stTime">—</div>
+      </div>
+      <div class="tile">
+        <div class="k">วันที่จบ</div>
+        <div class="v" id="edDate">—</div>
+      </div>
+      <div class="tile">
+        <div class="k">เวลาที่จบ</div>
+        <div class="v" id="edTime">—</div>
+      </div>
+    </div>
+
+    <div class="mid">
+      <div class="gang">
+        <div class="imgwrap"><img id="pvLogo1" alt="logo left" /></div>
+        <div class="name" id="pvGang1Name">GANG</div>
+        <div class="tag" id="pvGang1Tag">GANG A</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="gang">
+        <div class="imgwrap"><img id="pvLogo2" alt="logo right" /></div>
+        <div class="name" id="pvGang2Name">GANG</div>
+        <div class="tag" id="pvGang2Tag">GANG B</div>
+      </div>
+    </div>
+
+    <div class="info-bar">
+      <div class="tile">
+        <div class="k">ประเภทสตอรี่</div>
+        <div class="v" id="pvType">—</div>
+      </div>
+      <div class="tile">
+        <div class="k">จำนวนไฟท์/ใบที่เล่น</div>
+        <div class="v" id="pvFights">—</div>
+      </div>
+      <div class="tile">
+        <div class="k">เงินเดิมพัน</div>
+        <div class="v" id="pvDollars">—</div>
+      </div>
+      <div class="tile">
+        <div class="k">จำนวนการเล่น</div>
+        <div class="v" id="pvMember">—</div>
+      </div>
+    </div>
+
+    <div class="section-title">* ข้อกำหนดในการเล่นสตอรี่ *</div>
+    <div class="rule-table">
+      <div class="rule-col" id="pvRulesLeft"></div>
+      <div class="rule-col" id="pvRulesRight"></div>
+    </div>
+
+    <div class="section-title">* เพิ่มเติม *</div>
+    <div class="notes" id="pvMore">
+      <ul></ul>
+    </div>
+
+    <div class="foot">
+      <div class="small" id="pvF1">หมายเหตุ : คำใบ้</div>
+    </div>
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>

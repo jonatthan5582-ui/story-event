@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Story Announcement Preview (PNG)</title>
+  <link rel="stylesheet" href="preview.css" />
+  <!-- ใช้ html2canvas สำหรับแปลง DOM เป็น PNG -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+
+<body data-page="preview">
+  <div class="toolbar">
+    <button class="printbtn" onclick="exportPNG('.stage','Image.png')">ดาวน์โหลด PNG</button>
+  </div>
+
+  <div class="sheet">
+    <div class="stage">
+      <div class="title" id="pv_title">—</div>
+
+      <div class="top-tiles">
+        <div class="tile">
+          <div class="k">เริ่มวันที่</div>
+          <div class="v" id="pv_date">—</div>
+        </div>
+        <div class="tile">
+          <div class="k">เวลาเริ่มไฟต์แรก</div>
+          <div class="v" id="pv_time">—</div>
+        </div>
+        <div class="tile">
+          <div class="k">วันที่จบ</div>
+          <div class="v" id="pv_enddate">—</div>
+        </div>
+        <div class="tile">
+          <div class="k">เวลาที่จบ</div>
+          <div class="v" id="pv_endtime">—</div>
+        </div>
+      </div>
+
+      <div class="mid">
+        <div class="gang">
+          <div class="imgwrap"><img id="pv_logo1" alt=""></div>
+          <div class="name" id="pv_gang1Name">—</div>
+          <div class="tag" id="pv_gang1Tag">—</div>
+        </div>
+        <div class="vs">VS</div>
+        <div class="gang">
+          <div class="imgwrap"><img id="pv_logo2" alt=""></div>
+          <div class="name" id="pv_gang2Name">—</div>
+          <div class="tag" id="pv_gang2Tag">—</div>
+        </div>
+      </div>
+
+      <div class="info-bar">
+        <div class="tile">
+          <div class="k">ประเภทสตอรี่</div>
+          <div class="v" id="pv_story">—</div>
+        </div>
+        <div class="tile">
+          <div class="k">จำนวนไฟท์/ใบที่เล่น</div>
+          <div class="v" id="pv_fights">—</div>
+        </div>
+        <div class="tile">
+          <div class="k">เงินเดิมพัน</div>
+          <div class="v" id="pv_dollars">—</div>
+        </div>
+        <div class="tile">
+          <div class="k">จำนวนการเล่น</div>
+          <div class="v" id="pv_member">—</div>
+        </div>
+      </div>
+
+      <div class="section-title">* ข้อกำหนดในการเล่นสตอรี่ *</div>
+      <div class="rule-table">
+        <div class="rule-col" id="pv_rules_left"></div>
+        <div class="rule-col" id="pv_rules_right"></div>
+      </div>
+
+      <div class="section-title">* เพิ่มเติม *</div>
+      <div class="notes">
+        <ul id="pv_notes"></ul>
+      </div>
+
+      <div class="foot">
+        <div class="small" id="pv_foot1">—</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

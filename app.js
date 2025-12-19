@@ -3,16 +3,13 @@ const $ = (sel) => document.querySelector(sel);
 
 // ----- กฎเริ่มต้น ใช้ฝั่ง Builder -----
 const defaultRules = [
-  { text: 'ฟาร์มขาวบาง (02:00–18:59)', side: 'L', state: 'allow' },
-  { text: 'ฟาร์มวูดบาง (19:00–23:59)', side: 'L', state: 'deny' },
-  { text: 'ก้าวก่อนเริ่มเกม (02:00–18:59)', side: 'L', state: 'allow' },
-  { text: 'ก้าวก่อนเริ่มเกม (19:00–23:59)', side: 'L', state: 'deny' },
-  { text: 'แจ้ง–ขออนุมัติชื่อ', side: 'L', state: 'deny' },
+  { text: 'Toxic 100%', side: 'L', state: 'allow' },
+  { text: 'เพื่มถอนรายชื่อ (23:00–17:59)', side: 'L', state: 'allow' },
+  { text: 'เล่นกิจกรรม (23:00–17:59)', side: 'L', state: 'allow' },
 
-  { text: 'อนุญาตให้รับพยาบาลทุกประเภท', side: 'R', state: 'allow' },
-  { text: 'อุปกรณ์พยาบาลช่วยเหลือในไฟต์', side: 'R', state: 'allow' },
-  { text: 'อัปพาหนะช่วยงานในช่วงไฟต์', side: 'R', state: 'deny' },
-  { text: 'ห้ามแอบแสดงสต๊าฟฟักไว้ในไฟต์', side: 'R', state: 'deny' },
+  { text: 'AFK WARZONE AIRDROP (23:00–17:59)', side: 'L', state: 'deny' },
+  { text: 'อนุญาติเปลี่ยนใบเป็นคำปรับ(การบลัฟหลุด)', side: 'L', state: 'deny' },
+  { text: 'ตีตัวหลุด บลัฟและก่อนถึงสตอรี่', side: 'R', state: 'deny' },
 ];
 
 let rules = [...defaultRules];

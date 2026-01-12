@@ -4,10 +4,10 @@ const $ = (sel) => document.querySelector(sel);
 // ----- กฎเริ่มต้น ใช้ฝั่ง Builder -----
 const defaultRules = [
   { text: 'Toxic 100%', side: 'L', state: 'allow' },
-  { text: 'เพื่มถอนรายชื่อ (23:00–17:59)', side: 'L', state: 'allow' },
-  { text: 'เล่นกิจกรรม (23:00–17:59)', side: 'L', state: 'allow' },
+  { text: 'เพื่มถอนรายชื่อ (จนกว่าจะมีสตอรี่)', side: 'L', state: 'allow' },
+  { text: 'เล่นกิจกรรม (จนกว่าจะมีสตอรี่)', side: 'L', state: 'allow' },
 
-  { text: 'AFK WARZONE AIRDROP (23:00–17:59)', side: 'L', state: 'deny' },
+  { text: 'AFK WARZONE AIRDROP (จนกว่าจะมีสตอรี่)', side: 'L', state: 'deny' },
   { text: 'อนุญาติเปลี่ยนใบเป็นคำปรับ(การบลัฟหลุด)', side: 'L', state: 'deny' },
   { text: 'ตีตัวหลุด บลัฟและก่อนถึงสตอรี่', side: 'R', state: 'deny' },
 ];
